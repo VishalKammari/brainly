@@ -18,4 +18,9 @@ const TagSchema = new Schema({
     name: String,
     userId: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
 });
+const LinksSchema = new Schema({
+    hash: String,
+    userId: { type: mongoose.Types.ObjectId, ref: 'User', required: true, unique: true },
+});
+export const LinkModel = model('Links', LinksSchema);
 //# sourceMappingURL=db.js.map
