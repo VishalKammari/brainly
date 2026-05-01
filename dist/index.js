@@ -2,12 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { UserModel, ContentModel, LinkModel } from './db.js';
 import jwt from 'jsonwebtoken';
+import cors from 'cors';
 import secretKey from './config.js';
 import { authMiddleware } from './middleware.js';
 import { random } from './utils.js';
 const app = express();
 app.set('json spaces', 2);
 app.use(express.json());
+app.use(cors());
 app.post('/api/v1/signup', async (req, res) => {
     console.log("BODY:", req.body);
     const username = req.body.username;
@@ -57,8 +59,10 @@ app.post('/api/v1/signin', async (req, res) => {
 app.post('/api/v1/content', authMiddleware, async (req, res) => {
     const link = req.body.link;
     const type = req.body.type;
+    const title = req.body.title;
     await ContentModel.create({
         link,
+        title,
         //@ts-ignore
         type,
         //@ts-ignore
