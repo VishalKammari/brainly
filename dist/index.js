@@ -6,6 +6,7 @@ import cors from 'cors';
 import secretKey from './config.js';
 import { authMiddleware } from './middleware.js';
 import { random } from './utils.js';
+import bcrypt from 'bcrypt';
 const app = express();
 app.set('json spaces', 2);
 app.use(express.json());
@@ -15,9 +16,10 @@ app.post('/api/v1/signup', async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     try {
+        const hashedPassword = await bcrypt.hash(password, 10);
         await UserModel.create({
             username: username,
-            password: password,
+            password: hashedPassword,
         });
         res.json({
             message: 'User created successfully',
@@ -25,7 +27,7 @@ app.post('/api/v1/signup', async (req, res) => {
     }
     catch (err) {
         console.error("Error creating user:", err);
-        res.status(411).json({
+        res.status(409).json({
             message: 'user already exist',
         });
     }
@@ -34,21 +36,25 @@ app.post('/api/v1/signin', async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     try {
-        const existingUser = await UserModel.findOne({ username: username, password: password });
-        if (existingUser) {
-            const token = jwt.sign({
-                id: existingUser._id
-            }, secretKey);
-            res.json({
-                message: 'User signed in successfully',
-                token: token
-            });
-        }
-        else {
-            res.status(401).json({
+        const existingUser = await UserModel.findOne({ username: username });
+        if (!existingUser) {
+            return res.status(401).json({
                 message: 'Invalid username or password',
             });
         }
+        const ismatch = await bcrypt.compare(password, existingUser.password);
+        if (!ismatch) {
+            return res.status(401).json({
+                message: 'Invalid username or password',
+            });
+        }
+        const token = jwt.sign({
+            id: existingUser._id
+        }, secretKey);
+        res.json({
+            message: 'User signed in successfully',
+            token: token
+        });
     }
     catch (err) {
         res.status(401).json({
@@ -110,11 +116,10 @@ app.post('/api/v1/brain/share', authMiddleware, async (req, res) => {
             hash: hash,
         });
         res.json({
-            message: '/share' + hash,
+            hash,
+            message: '/share/' + hash,
         });
-        res.status(500).json({
-            message: 'Error creating share link',
-        });
+        return;
     }
     else {
         await LinkModel.deleteOne({
