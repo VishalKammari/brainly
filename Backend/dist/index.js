@@ -12,7 +12,7 @@ app.set('json spaces', 2);
 app.use(express.json());
 app.use(cors());
 app.post('/api/v1/signup', async (req, res) => {
-    console.log("BODY:", req.body);
+    // console.log("BODY:", req.body);
     const username = req.body.username;
     const password = req.body.password;
     try {
@@ -26,7 +26,7 @@ app.post('/api/v1/signup', async (req, res) => {
         });
     }
     catch (err) {
-        console.error("Error creating user:", err);
+        // console.error("Error creating user:", err);
         res.status(409).json({
             message: 'user already exist',
         });
