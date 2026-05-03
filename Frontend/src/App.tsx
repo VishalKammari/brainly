@@ -3,7 +3,7 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 import SharedBrain from './pages/SharedBrain.tsx'
 import{BrowserRouter, Routes, Route} from 'react-router-dom'
-import Backgroundvideo from '../components/BackGroundvideo.tsx'
+
 
 function App() {
   return (

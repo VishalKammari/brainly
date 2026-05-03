@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Card from "../../components/Card";
 import { backend_Url } from "../config";
-import Button from "../../components/Button";
+
 
 type ContentType =
   | "twitter"

@@ -21,12 +21,18 @@ const defaultStyles = `
 `;
 
 const Button = ({
-  variant,
+  variant = 'primary',
   text,
   StartIcon,
   onClick,
-  loading,
-}: ButtonProps) => {
+  loading
+}: {
+  variant?: 'primary' | 'secondary';
+  text: string;
+  StartIcon?: React.ReactNode;
+  onClick?: () => void;
+  loading?: boolean;
+}) => {
   return (
     <button
       className={`${styles[variant]} ${defaultStyles}`}
