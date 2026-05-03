@@ -1,12 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
 import { UserModel, ContentModel, LinkModel } from './db.js';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
-import secretKey from './config.js';
 import { authMiddleware } from './middleware.js';
 import { random } from './utils.js';
 import bcrypt from 'bcrypt';
+const secretKey = process.env.Secret;
 const app = express();
 app.set('json spaces', 2);
 app.use(express.json());

@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import jwt,{type JwtPayload} from 'jsonwebtoken';
-import secretKey from './config.js';
+const secretKey=process.env.Secret as string;
 
 export const authMiddleware=(req:Request,res:Response,next:NextFunction)=>{
     const header=req.headers['authorization'];

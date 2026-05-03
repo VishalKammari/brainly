@@ -1,5 +1,5 @@
 import jwt, {} from 'jsonwebtoken';
-import secretKey from './config.js';
+const secretKey = process.env.Secret;
 export const authMiddleware = (req, res, next) => {
     const header = req.headers['authorization'];
     const decoded = jwt.verify(header, secretKey);

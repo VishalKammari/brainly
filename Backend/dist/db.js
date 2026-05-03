@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
 import mongoose, { model, Schema } from 'mongoose';
-mongoose.connect('mongodb://localhost:27017/brainly')
+const mongoUrl = process.env.MONGO_URL;
+mongoose.connect(mongoUrl)
     .then(() => console.log("DB connected"))
     .catch(err => console.log("DB error:", err));
 const UserSchema = new Schema({
