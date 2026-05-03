@@ -87,10 +87,10 @@ const SharedBrain = () => {
           {username}&apos;s Brain
         </h1>
         <button className="flex items-center gap-3 px-4 py-2 bg-white backdrop-blur-md border border-gray-200 rounded-xl shadow-sm cursor-pointer"
-        onClick={() => window.open("http://localhost:5173/signin", "_blank")}
+        onClick={() => window.open("https://braily.netlify.app/signin", "_blank")}
         >
         <img 
-        src="/public/icons8-curly-arrow.gif" 
+        src="/icons8-curly-arrow.gif" 
         alt="brain" 
         className="w-7 h-7 opacity-80"
         />
