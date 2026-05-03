@@ -31,7 +31,6 @@ const ProfileHeader = () => {
     <div className="flex items-center gap-3 px-4 py-2 rounded-xl 
                     bg-white/10 backdrop-blur-md border border-white/20 shadow-md">
 
-      {/* Avatar */}
       <div className="w-9 h-9 rounded-full 
                       bg-white/20 text-white flex items-center justify-center 
                       text-sm font-semibold">

@@ -11,15 +11,15 @@ interface Cardprops{
 
  const extractLinkedInPostId = (url: string): string | null => {
   try {
-    // Case 1: activity-123456
+    
     let match = url.match(/activity-(\d+)/);
     if (match) return match[1];
 
-    // Case 2: urn formats
+    
     match = url.match(/urn:li:(?:activity|share):(\d+)/);
     if (match) return match[1];
 
-    // Case 3: last big number in posts URL
+    
     match = url.match(/-(\d{10,})-/);
     if (match) return match[1];
 
@@ -35,7 +35,6 @@ const Card = ({ title, link, type }: Cardprops) => {
   return (
     <div className="break-inside-avoid bg-white shadow-md rounded-xl p-4 border max-h-[500px]">
       
-      {/* Header */}
       <div className="flex justify-between items-center">
         <h3 className="font-medium text-slate-800">{title}</h3>
 
@@ -49,7 +48,7 @@ const Card = ({ title, link, type }: Cardprops) => {
         </a>
       </div>
 
-      {/* Content */}
+      
       <div className="pt-4">
         
         {type === "youtube"  && (

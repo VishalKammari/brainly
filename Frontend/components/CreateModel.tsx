@@ -79,7 +79,6 @@ export default function CreateModel({
           </button>
         </div>
 
-        {/* Inputs */}
         <div className="flex flex-col gap-4">
           <Input placeholder="Enter title..." ref={titleref} />
           <Input placeholder="Paste link..." ref={linkref} />

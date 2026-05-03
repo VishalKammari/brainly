@@ -76,7 +76,7 @@ function Dashboard() {
   return (
   <div className="relative min-h-screen w-full overflow-hidden">
     
-    {/* 🎥 Background Video */}
+   
     <video
       autoPlay
       loop
@@ -87,18 +87,18 @@ function Dashboard() {
       <source src="public/a.mp4" type="video/mp4" />
     </video>
 
-    {/* 🌑 Overlay */}
+
     <div className="fixed top-0 left-0 w-full h-full bg-black/50 -z-10"></div>
 
-    {/* 📦 Main Layout */}
+   
     <div className="flex min-h-screen">
       
-      {/* Sidebar */}
+    
       <div className="hidden md:block">
         <Sidebar activeFilter={activeFilter} onFilterSelect={setActiveFilter} />
       </div>
 
-      {/* Main */}
+     
       <div className="w-full p-4 md:ml-64 relative z-10">
         <ProfileHeader />
         
@@ -108,7 +108,6 @@ function Dashboard() {
           refresh={refresh}
         />
 
-        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 mb-4 mt-16 lg:mt-5">
           <Button
             variant="primary"
@@ -125,7 +124,7 @@ function Dashboard() {
           />
         </div>
 
-        {/* Cards */}
+    
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {filteredContents.map(({ type, link, title, _id }) => (

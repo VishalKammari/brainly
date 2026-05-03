@@ -45,7 +45,6 @@ const Signup = () => {
   return (
   <div className="relative min-h-screen w-screen overflow-hidden">
 
-    {/* 🎥 Background Video */}
     <video
       autoPlay
       loop
@@ -53,11 +52,9 @@ const Signup = () => {
       playsInline
       className="absolute top-0 left-0 w-full h-full object-cover"
     >
-      <source src="/public/a.mp4" type="video/mp4" />
+      <source src="/a.mp4" type="video/mp4" />
     </video>
 
-    {/* 🌑 Overlay */}
-    {/* <div className="absolute inset-0 bg-black/50"></div> */}
 
     {/* 📦 Content */}
     <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
@@ -66,7 +63,6 @@ const Signup = () => {
       <div className="bg-white/90 backdrop-blur-md border border-white 
                       w-full max-w-md rounded-2xl shadow-xl p-8 text-black">
 
-        {/* Heading */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold">Create Account</h1>
           <p className="text-gray-500 mt-2">
@@ -74,7 +70,7 @@ const Signup = () => {
           </p>
         </div>
 
-        {/* Form */}
+       
         <div className="flex flex-col gap-5">
           <Input ref={usernameRef} placeholder="Username" />
           <Input ref={passwordRef} placeholder="Password" />
@@ -88,7 +84,7 @@ const Signup = () => {
           </div>
         </div>
 
-        {/* Redirect */}
+       
         <p className="text-center text-sm text-black mt-6">
           Already have an account?{" "}
           <span

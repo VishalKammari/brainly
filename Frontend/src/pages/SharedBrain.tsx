@@ -68,7 +68,7 @@ const SharedBrain = () => {
   return (
   <div className="relative min-h-screen w-full overflow-hidden">
 
-    {/* 🎥 Background Video */}
+  
     <video
       autoPlay
       loop
@@ -76,16 +76,12 @@ const SharedBrain = () => {
       playsInline
       className="fixed top-0 left-0 w-full h-full object-cover -z-10"
     >
-      <source src="/public/a.mp4" type="video/mp4" />
+      <source src="/a.mp4" type="video/mp4" />
     </video>
 
-    {/* 🌑 Overlay */}
-    {/* <div className="fixed inset-0 bg-black/60 -z-10"></div> */}
-
-    {/* 📦 Content */}
+ 
     <div className="relative z-10 min-h-screen p-4 md:p-6">
 
-      {/* Header */}
       <div className="max-w-7xl flex justify-between mx-auto px-4 py-2">
         <h1 className="text-2xl font-semibold text-white">
           {username}&apos;s Brain
@@ -104,7 +100,6 @@ const SharedBrain = () => {
         </button>
       </div>
 
-      {/* Cards */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {contents.map(({ type, link, title, _id }) => (

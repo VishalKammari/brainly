@@ -14,7 +14,7 @@ const Signin = () => {
   const navigate=useNavigate();
 
   const signin = async () => {
-    // Handle signin logic here
+   
     const username=usernameRef.current?.value;
     const password=passwordRef.current?.value;
     
@@ -46,7 +46,7 @@ const Signin = () => {
       playsInline
       className="absolute top-0 left-0 w-full h-full object-cover"
     >
-      <source src="/public/a.mp4" type="video/mp4" />
+      <source src="/a.mp4" type="video/mp4" />
     </video>     
     <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
       <h1 className="text-7xl font-instrument text-4xl p-4 pl-6 font-weight-bold text-white">Brainly</h1>
